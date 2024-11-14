@@ -1,0 +1,21 @@
+Linux Kernel
+
+The Linux kernel is a free and open source, UNIX-like kernel that is used in many computer systems worldwide. The kernel was created by Linus Torvalds in 1991 and was soon adopted as the kernel for the GNU operating system (OS) which was created to be a free replacement for Unix. Since the late 1990s, it has been included in many operating system distributions, many of which are called Linux. One such Linux kernel operating system is Android which is used in many mobile and embedded devices.
+
+Most of the kernel code is written in C as supported by the GNU compiler collection (GCC) which has extensions beyond standard C. The code also contains assembly code for architecture-specific logic such as optimizing memory use and task execution. The kernel has a modular design such that modules can be integrated as software components – including dynamically loaded. The kernel is monolithic in an architectural sense since the entire OS runs in kernel space.
+
+Linux is provided under the GNU General Public License version 2, although it contains files under other compatible licenses.
+
+In April 1991, Linus Torvalds, a 21-year-old computer science student at the University of Helsinki started working on an operating system, inspired by UNIX, for a personal computer.[14] He started with a task switcher in Intel 80386 assembly language and a terminal driver.[14] On 25 August 1991, Torvalds posted the following to comp.os.minix, a newsgroup on Usenet.
+On 17 September 1991, Torvalds prepared version 0.01 of Linux and put on the "ftp.funet.fi" – FTP server of the Finnish University and Research Network (FUNET). It was not even executable since its code still needed Minix to compile and test it.
+On 5 October 1991, Torvalds announced the first "official" version of Linux, version 0.02.
+
+Populatiry
+
+According to the Stack Overflow's annual Developer Survey of 2019, more than the 53% of all respondents have developed software for Linux and about 27% for Android,[64] although only about 25% develop with Linux-based operating systems.
+
+Most websites run on Linux-based operating systems, and all of the world's 500 most powerful supercomputers use some form of OS based on Linux.
+
+Linux distributions bundle the kernel with system software (e.g., the GNU C Library, systemd, and other Unix utilities and daemons) and a wide selection of application software, but their usage share in desktops is low in comparison to other operating systems.
+
+Since Android, which is Linux, accounts for the majority of mobile device operating systems, and due to its rising use in embedded devices, Android is significantly responsible for rising use of Linux overall.
