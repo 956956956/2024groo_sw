@@ -1,0 +1,30 @@
+`timescale 1ns / 1ps
+
+module top;
+
+reg CAR, CLOCK, CLEAR;
+reg [2:0] y2rdelay, r2gdelay;
+wire [1:0] MAIN_SIG, CNTRY_SIG;
+
+traffic_signal_controller m1(.hwy(MAIN_SIG), .cntry(CNTRY_SIG), .X(CAR), .clock(CLOCK), .clear(CLEAR), .y2rdelay(y2rdelay), .r2gdelay(r2gdelay));
+
+initial
+begin
+    CLOCK = 0;
+    forever #5 CLOCK = ~CLOCK;
+end
+
+initial
+begin
+    CAR = 0; CLEAR = 1;
+    y2rdelay = 3; r2gdelay = 2;
+    #25 CLEAR = 0;
+    #175 CAR = 1;
+    #100 CAR = 0;
+    #200 CAR = 1;
+    #100 CAR = 0;
+    #200 CAR = 1;
+    #100 CAR = 0;
+    #100 $stop;
+end
+endmodule

@@ -1,0 +1,45 @@
+`timescale 1ns / 1ps
+
+module detector(Y, CLK, nRST, X);
+    input CLK, nRST, X;
+    output reg Y;
+
+    parameter S0 = 2'b00,
+               S1 = 2'b01,
+               S2 = 2'b10,
+               S3 = 2'b11;
+               
+    reg[1:0] cstate;
+    reg[1:0] next_state;
+    
+    always @(posedge CLK or negedge nRST )
+    begin
+        if(!nRST)
+        begin
+            cstate <= S0;
+            Y = 0;
+        end
+        else
+            cstate <= next_state;
+    end
+    
+    always @(cstate or X)
+    begin
+        if(X == 1)
+        begin
+            case(cstate)
+                S0: next_state = S1;
+                S1: next_state = S2;
+                S2: next_state = S3;
+                S3: ;
+            endcase
+        end
+        else
+           next_state = S0;
+           
+        if(cstate == S3)
+           Y = 1;
+        else
+           Y = 0;   
+    end
+endmodule
