@@ -1,0 +1,21 @@
+CC = gcc
+OBJS = main.o foo.o bar.o
+TARGET = app.out
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CC) -o $(TARGET) $(OBJS)
+
+main.o: foo.h bar.h main.c
+	$(CC) -c main.c
+
+foo.o: foo.h foo.c
+	$(CC) -c foo.c
+
+bar.o: bar.h bar.c
+	$(CC) -c bar.c
+
+clear:
+	rm $(OBJS)
+	rm $(TARGET)
