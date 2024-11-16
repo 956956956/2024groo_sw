@@ -1,0 +1,35 @@
+module D_latch(Q, Qbar, D, En);
+
+output Q, Qbar;
+input D, En;
+
+nand n1(Q, Sbar, Qbar);
+nand n2(Qbar, Rbar, Q);
+nand n3(Sbar, D, En);
+nand n4(Rbar, En, Dbar);
+not n5(Dbar, D);
+
+endmodule
+
+module Top;
+
+wire Q, Qbar;
+reg En, D;
+
+D_latch m1(.D(D), .En(En), .Q(Q), .Qbar(Qbar));
+
+initial
+begin
+    $monitor($time, " D = %b, En = %b, Q = %b, Qbar = %b\n", D, En, Q, Qbar);
+    D = 0; En = 0;
+    #5 D = 1;
+    #5 D = 0;
+    #2 En = 1;
+    #3 D = 1;
+    #5 D = 0;
+    #5 D = 1;
+    #2 En = 0;
+    #3 D = 0;
+end
+
+endmodule

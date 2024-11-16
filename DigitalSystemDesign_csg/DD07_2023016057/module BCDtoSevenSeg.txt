@@ -1,0 +1,71 @@
+module BCDtoSevenSeg(a, b, c, d, e, f, g, BCDIn);
+
+input [3:0] BCDIn;
+output reg a, b, c, d, e, f, g;
+
+reg [6:0] result;
+
+always @(BCDIn)
+begin
+    a = 0; b = 0; c = 0; d = 0; e = 0; f = 0; g = 0;
+    control(result, BCDIn);
+    if(result[0] == 1) g = 1;
+    if(result[1] == 1) f = 1;
+    if(result[2] == 1) e = 1;
+    if(result[3] == 1) d = 1;
+    if(result[4] == 1) c = 1;
+    if(result[5] == 1) b = 1;
+    if(result[6] == 1) a = 1;
+end
+
+task control;
+
+output [6:0] result;
+input [3:0] In;
+assign result = (In == 4'b0000) ? 7'b111_1110 :
+                (In == 4'b0001) ? 7'b011_0000 :
+                (In == 4'b0010) ? 7'b110_1101 :
+                (In == 4'b0011) ? 7'b111_1001 :
+                (In == 4'b0100) ? 7'b011_0011 :
+                (In == 4'b0101) ? 7'b101_1011 :
+                (In == 4'b0110) ? 7'b101_1111 :
+                (In == 4'b0111) ? 7'b111_0000 :
+                (In == 4'b1000) ? 7'b111_1111 :
+                (In == 4'b1001) ? 7'b111_1011 :
+                7'b000_0000;
+endtask
+
+endmodule
+
+
+module Top;
+
+wire a, b, c, d, e, f, g;
+reg [3:0] In;
+    
+BCDtoSevenSeg m1(.a(a), .b(b), .c(c), .d(d), .e(e), .f(f), .g(g), .BCDIn(In));
+ 
+initial
+begin
+    $monitor($time, " BCDIn =  %d --> a=%b, b=%b, c=%b, d=%b, e=%b, f=%b, g=%b\n", In, 
+                    a, b, c, d, e, f, g);
+    In = 0;
+    #10 In = 1;
+    #10 In = 2;
+    #10 In = 3;
+    #10 In = 4;
+    #10 In = 5;
+    #10 In = 6;
+    #10 In = 7;
+    #10 In = 8;
+    #10 In = 9;
+    #10 In = 10;
+    #10 In = 11;
+    #10 In = 12;
+    #10 In = 13;
+    #10 In = 14;
+    #10 In = 15;
+    #10 In = 0;
+end
+
+endmodule

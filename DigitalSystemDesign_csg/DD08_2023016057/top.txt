@@ -1,0 +1,29 @@
+`timescale 1ns / 1ps
+
+module top;
+
+wire Y;
+reg CLK, nRST, X;
+
+detector m1(.Y(Y), .CLK(CLK), .nRST(nRST), .X(X));
+
+initial
+begin
+    CLK = 0;
+    forever #5 CLK = ~CLK;
+end
+
+initial
+begin
+    X = 0; nRST = 0;
+    #20 nRST = 1;
+    #20 X = 1;
+    #30 X = 0;
+    #20 X = 1;
+    #10 X = 0;
+    #20 X = 1;
+    #40 X = 0;
+    #30 $stop;
+end
+
+endmodule
