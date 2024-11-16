@@ -1,0 +1,62 @@
+ 1	HEAD(1)                                User Commands                                HEAD(1)
+ 2	
+ 3	NAME
+ 4	       head - output the first part of files
+ 5	
+ 6	SYNOPSIS
+ 7	       head [OPTION]... [FILE]...
+ 8	
+ 9	DESCRIPTION
+10	       Print  the first 10 lines of each FILE to standard output.  With more than one FILE,
+11	       precede each with a header giving the file name.
+12	
+13	       With no FILE, or when FILE is -, read standard input.
+14	
+15	       Mandatory arguments to long options are mandatory for short options too.
+16	
+17	       -c, --bytes=[-]NUM
+18	              print the first NUM bytes of each file; with the leading '-', print  all  but
+19	              the last NUM bytes of each file
+20	
+21	       -n, --lines=[-]NUM
+22	              print  the  first  NUM  lines  instead of the first 10; with the leading '-',
+23	              print all but the last NUM lines of each file
+24	
+25	       -q, --quiet, --silent
+26	              never print headers giving file names
+27	
+28	       -v, --verbose
+29	              always print headers giving file names
+30	
+31	       -z, --zero-terminated
+32	              line delimiter is NUL, not newline
+33	
+34	       --help display this help and exit
+35	
+36	       --version
+37	              output version information and exit
+38	
+39	       NUM may have a multiplier suffix: b 512, kB 1000, K 1024, MB 1000*1000, M 1024*1024,
+40	       GB  1000*1000*1000,  G 1024*1024*1024, and so on for T, P, E, Z, Y.  Binary prefixes
+41	       can be used, too: KiB=K, MiB=M, and so on.
+42	
+43	AUTHOR
+44	       Written by David MacKenzie and Jim Meyering.
+45	
+46	REPORTING BUGS
+47	       GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+48	       Report any translation bugs to <https://translationproject.org/team/>
+49	
+50	COPYRIGHT
+51	       Copyright © 2020 Free Software Foundation, Inc.  License GPLv3+: GNU GPL  version  3
+52	       or later <https://gnu.org/licenses/gpl.html>.
+53	       This is free software: you are free to change and redistribute it.  There is NO WAR‐
+54	       RANTY, to the extent permitted by law.
+55	
+56	SEE ALSO
+57	       tail(1)
+58	
+59	       Full documentation <https://www.gnu.org/software/coreutils/head>
+60	       or available locally via: info '(coreutils) head invocation'
+61	
+62	GNU coreutils 8.32                     February 2022                                HEAD(1)
